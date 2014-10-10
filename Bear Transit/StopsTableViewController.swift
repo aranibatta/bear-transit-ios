@@ -33,7 +33,11 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
     
     override func viewDidLoad() {
         self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: Selector("triggerUpdate"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl?.beginRefreshing()
+    }
+    
+    func triggerUpdate() {
         locationManager!.getLocation()
     }
     
