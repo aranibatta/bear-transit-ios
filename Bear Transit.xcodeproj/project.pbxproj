@@ -10,6 +10,7 @@
 		774AD68619E7A69B0092EF9C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774AD68519E7A69B0092EF9C /* AlertUtils.swift */; };
 		774AD69019E7ADC60092EF9C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774AD68D19E7AD910092EF9C /* Alamofire.framework */; };
 		774AD69219E7ADE70092EF9C /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 774AD68D19E7AD910092EF9C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		774AD69419E7B0DE0092EF9C /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774AD69319E7B0DE0092EF9C /* Stop.swift */; };
 		774B98B919E70D6F00656E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B98B819E70D6F00656E56 /* AppDelegate.swift */; };
 		774B98BE19E70D6F00656E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774B98BC19E70D6F00656E56 /* Main.storyboard */; };
 		774B98C019E70D6F00656E56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774B98BF19E70D6F00656E56 /* Images.xcassets */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		774AD68519E7A69B0092EF9C /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		774AD68719E7AD910092EF9C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		774AD69319E7B0DE0092EF9C /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		774B98B319E70D6F00656E56 /* Bear Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bear Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		774B98B719E70D6F00656E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774B98B819E70D6F00656E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				774B98B819E70D6F00656E56 /* AppDelegate.swift */,
 				774AD68519E7A69B0092EF9C /* AlertUtils.swift */,
 				774B98DA19E70ECE00656E56 /* StopsTableViewController.swift */,
+				774AD69319E7B0DE0092EF9C /* Stop.swift */,
 				774B98DC19E7102B00656E56 /* LocationManager.swift */,
 				774B98BC19E70D6F00656E56 /* Main.storyboard */,
 				774B98BF19E70D6F00656E56 /* Images.xcassets */,
@@ -295,6 +298,7 @@
 			files = (
 				774AD68619E7A69B0092EF9C /* AlertUtils.swift in Sources */,
 				774B98B919E70D6F00656E56 /* AppDelegate.swift in Sources */,
+				774AD69419E7B0DE0092EF9C /* Stop.swift in Sources */,
 				774B98DB19E70ECE00656E56 /* StopsTableViewController.swift in Sources */,
 				774B98DD19E7102B00656E56 /* LocationManager.swift in Sources */,
 			);
