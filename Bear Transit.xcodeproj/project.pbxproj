@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		774AD68619E7A69B0092EF9C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774AD68519E7A69B0092EF9C /* AlertUtils.swift */; };
+		774AD69019E7ADC60092EF9C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774AD68D19E7AD910092EF9C /* Alamofire.framework */; };
+		774AD69219E7ADE70092EF9C /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 774AD68D19E7AD910092EF9C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		774B98B919E70D6F00656E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B98B819E70D6F00656E56 /* AppDelegate.swift */; };
 		774B98BE19E70D6F00656E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774B98BC19E70D6F00656E56 /* Main.storyboard */; };
 		774B98C019E70D6F00656E56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774B98BF19E70D6F00656E56 /* Images.xcassets */; };
@@ -18,6 +21,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		774AD68C19E7AD910092EF9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 774AD68719E7AD910092EF9C /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		774AD68E19E7AD910092EF9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 774AD68719E7AD910092EF9C /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
 		774B98C919E70D6F00656E56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 774B98AB19E70D6F00656E56 /* Project object */;
@@ -27,7 +44,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		774AD69119E7ADCE0092EF9C /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				774AD69219E7ADE70092EF9C /* Alamofire.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		774AD68519E7A69B0092EF9C /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
+		774AD68719E7AD910092EF9C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		774B98B319E70D6F00656E56 /* Bear Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bear Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		774B98B719E70D6F00656E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774B98B819E70D6F00656E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774AD69019E7ADC60092EF9C /* Alamofire.framework in Frameworks */,
 				774B98D919E70DBF00656E56 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		774AD68819E7AD910092EF9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				774AD68D19E7AD910092EF9C /* Alamofire.framework */,
+				774AD68F19E7AD910092EF9C /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		774B98AA19E70D6F00656E56 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +111,7 @@
 				774B98B519E70D6F00656E56 /* Bear Transit */,
 				774B98CB19E70D6F00656E56 /* Bear TransitTests */,
 				774B98B419E70D6F00656E56 /* Products */,
+				774AD68719E7AD910092EF9C /* Alamofire.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				774B98B819E70D6F00656E56 /* AppDelegate.swift */,
+				774AD68519E7A69B0092EF9C /* AlertUtils.swift */,
 				774B98DA19E70ECE00656E56 /* StopsTableViewController.swift */,
 				774B98DC19E7102B00656E56 /* LocationManager.swift */,
 				774B98BC19E70D6F00656E56 /* Main.storyboard */,
@@ -127,6 +172,7 @@
 			buildConfigurationList = 774B98D219E70D6F00656E56 /* Build configuration list for PBXNativeTarget "Bear Transit" */;
 			buildPhases = (
 				774B98AF19E70D6F00656E56 /* Sources */,
+				774AD69119E7ADCE0092EF9C /* Copy Frameworks */,
 				774B98B019E70D6F00656E56 /* Frameworks */,
 				774B98B119E70D6F00656E56 /* Resources */,
 			);
@@ -191,6 +237,12 @@
 			mainGroup = 774B98AA19E70D6F00656E56;
 			productRefGroup = 774B98B419E70D6F00656E56 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 774AD68819E7AD910092EF9C /* Products */;
+					ProjectRef = 774AD68719E7AD910092EF9C /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				774B98B219E70D6F00656E56 /* Bear Transit */,
@@ -198,6 +250,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		774AD68D19E7AD910092EF9C /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 774AD68C19E7AD910092EF9C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		774AD68F19E7AD910092EF9C /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 774AD68E19E7AD910092EF9C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		774B98B119E70D6F00656E56 /* Resources */ = {
@@ -224,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774AD68619E7A69B0092EF9C /* AlertUtils.swift in Sources */,
 				774B98B919E70D6F00656E56 /* AppDelegate.swift in Sources */,
 				774B98DB19E70ECE00656E56 /* StopsTableViewController.swift in Sources */,
 				774B98DD19E7102B00656E56 /* LocationManager.swift in Sources */,

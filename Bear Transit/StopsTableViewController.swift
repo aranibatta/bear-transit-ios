@@ -9,18 +9,24 @@
 import Foundation
 import UIKit
 import CoreLocation
+import Alamofire
 
-class StopsTableViewController: UITableViewController, LocationManagerDelegate {
+class StopsTableViewController: UITableViewController, LocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
-    let locationManager : LocationManager?
+    var locationManager : LocationManager?
     
+    // MARK: - Init
     override init() {
         super.init()
-        locationManager = LocationManager(delegate: self)
+        sharedInit()
     }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        sharedInit()
+    }
+    
+    func sharedInit() {
         locationManager = LocationManager(delegate: self)
     }
     
@@ -28,19 +34,30 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate {
         locationManager!.getLocation()
     }
     
+    // MARK: - UI
+    
+    func updateStopsTable(stops : [AnyObject]) {
+        println(stops)
+    }
+    
+    // MARK: - LocationManagerDelegate
+    
     func didGetLocation(location : CLLocation) {
         println(location.description)
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        Alamofire.request(.GET, "https://beartransit.daylen.com/api/v1/stops?lat=\(lat)&lon=\(lon)")
+            .responseJSON { (request, response, json, error) -> Void in
+                self.updateStopsTable(json as [AnyObject])
+        }
     }
     
     func didGetLocationError(error: NSError) {
-        println(error.description)
+        AlertUtils.showAlert(self, title: "Could not get location", message: error.localizedDescription)
     }
     
     func didGetPermissionError() {
-        let alert = UIAlertController(title: "Could not get location", message: "Permission was denied. Please give permission to access location.", preferredStyle: UIAlertControllerStyle.Alert)
-        let button = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
-        alert.addAction(button)
-        self.presentViewController(alert, animated: true, completion: nil)
+        AlertUtils.showAlert(self, title: "Could not get location", message: "Permission was denied. Please give permission to access your location.");
     }
     
 }
