@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		774B98B919E70D6F00656E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B98B819E70D6F00656E56 /* AppDelegate.swift */; };
-		774B98BB19E70D6F00656E56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B98BA19E70D6F00656E56 /* ViewController.swift */; };
 		774B98BE19E70D6F00656E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774B98BC19E70D6F00656E56 /* Main.storyboard */; };
 		774B98C019E70D6F00656E56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774B98BF19E70D6F00656E56 /* Images.xcassets */; };
 		774B98C319E70D6F00656E56 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774B98C119E70D6F00656E56 /* LaunchScreen.xib */; };
 		774B98CF19E70D6F00656E56 /* Bear_TransitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B98CE19E70D6F00656E56 /* Bear_TransitTests.swift */; };
+		774B98D919E70DBF00656E56 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774B98D819E70DBF00656E56 /* MapKit.framework */; };
+		774B98DB19E70ECE00656E56 /* StopsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B98DA19E70ECE00656E56 /* StopsTableViewController.swift */; };
+		774B98DD19E7102B00656E56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B98DC19E7102B00656E56 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		774B98B319E70D6F00656E56 /* Bear Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bear Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		774B98B719E70D6F00656E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774B98B819E70D6F00656E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		774B98BA19E70D6F00656E56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		774B98BD19E70D6F00656E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		774B98BF19E70D6F00656E56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		774B98C219E70D6F00656E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		774B98C819E70D6F00656E56 /* Bear TransitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bear TransitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		774B98CD19E70D6F00656E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774B98CE19E70D6F00656E56 /* Bear_TransitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bear_TransitTests.swift; sourceTree = "<group>"; };
+		774B98D819E70DBF00656E56 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		774B98DA19E70ECE00656E56 /* StopsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewController.swift; sourceTree = "<group>"; };
+		774B98DC19E7102B00656E56 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774B98D919E70DBF00656E56 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		774B98AA19E70D6F00656E56 = {
 			isa = PBXGroup;
 			children = (
+				774B98D819E70DBF00656E56 /* MapKit.framework */,
 				774B98B519E70D6F00656E56 /* Bear Transit */,
 				774B98CB19E70D6F00656E56 /* Bear TransitTests */,
 				774B98B419E70D6F00656E56 /* Products */,
@@ -78,7 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				774B98B819E70D6F00656E56 /* AppDelegate.swift */,
-				774B98BA19E70D6F00656E56 /* ViewController.swift */,
+				774B98DA19E70ECE00656E56 /* StopsTableViewController.swift */,
+				774B98DC19E7102B00656E56 /* LocationManager.swift */,
 				774B98BC19E70D6F00656E56 /* Main.storyboard */,
 				774B98BF19E70D6F00656E56 /* Images.xcassets */,
 				774B98C119E70D6F00656E56 /* LaunchScreen.xib */,
@@ -161,6 +168,11 @@
 				TargetAttributes = {
 					774B98B219E70D6F00656E56 = {
 						CreatedOnToolsVersion = 6.0.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					774B98C719E70D6F00656E56 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -212,8 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774B98BB19E70D6F00656E56 /* ViewController.swift in Sources */,
 				774B98B919E70D6F00656E56 /* AppDelegate.swift in Sources */,
+				774B98DB19E70ECE00656E56 /* StopsTableViewController.swift in Sources */,
+				774B98DD19E7102B00656E56 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +418,7 @@
 				774B98D419E70D6F00656E56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		774B98D519E70D6F00656E56 /* Build configuration list for PBXNativeTarget "Bear TransitTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +427,7 @@
 				774B98D719E70D6F00656E56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
