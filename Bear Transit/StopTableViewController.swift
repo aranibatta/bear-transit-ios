@@ -17,6 +17,7 @@ class StopTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         navigationItem.title = stop?.name
+        self.tableView.registerNib(UINib(nibName: "NextBusTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "NextBusCell")
         let time = Int(NSDate().timeIntervalSince1970) * 1000
         let requestURL = "\(API_ROOT)stop/\(stop!.getSafeIdentifier())?time=\(time)"
         println(requestURL)
@@ -42,7 +43,7 @@ class StopTableViewController: UITableViewController {
         if (indexPath.section == 0) {
             return 250
         } else {
-            return 44
+            return 60
         }
     }
     
@@ -53,9 +54,13 @@ class StopTableViewController: UITableViewController {
             mapCell.dropPin(stop!.lat, lon: stop!.lon)
             return mapCell
         } else {
-            let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "NextBusCell")
-            cell.textLabel?.text = (departures[indexPath.row]["line"]! as String)
-            cell.detailTextLabel?.text = (departures[indexPath.row]["line_note"]! as String)
+            let cell = tableView.dequeueReusableCellWithIdentifier("NextBusCell") as NextBusTableViewCell
+            cell.backgroundColor = UIColor(red: 26/255.0, green: 101/255.0, blue: 71/255.0, alpha: 1.0)
+            cell.lineName.text = (departures[indexPath.row]["line"]! as String)
+            let destination = departures[indexPath.row]["line_note"]! as String
+            cell.lineNote.text = "To \(destination)"
+            cell.timeOne.text = "LOL"
+            cell.timeTwo.text = "2"
             return cell
         }
     }

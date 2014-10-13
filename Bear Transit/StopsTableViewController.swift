@@ -58,10 +58,16 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "StopCell")
-        cell.textLabel?.text = stops[indexPath.row].name
-        cell.detailTextLabel?.text = String(format: "%.2f miles away", stops[indexPath.row].distance)
-        return cell
+        var cell = tableView.dequeueReusableCellWithIdentifier("StopCell") as? UITableViewCell
+        if cell == nil {
+            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "StopCell")
+        }
+        if let cell = cell {
+            cell.textLabel?.text = stops[indexPath.row].name
+            cell.detailTextLabel?.text = String(format: "%.2f miles away", stops[indexPath.row].distance)
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        }
+        return cell!
     }
     
     // MARK: - UI

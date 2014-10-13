@@ -10,6 +10,8 @@
 		771A62D519ECC3610022288E /* StopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771A62D419ECC3610022288E /* StopTableViewController.swift */; };
 		771A62D719ECC85F0022288E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771A62D619ECC85F0022288E /* Constants.swift */; };
 		771A62D919ECCC990022288E /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771A62D819ECCC990022288E /* MapTableViewCell.swift */; };
+		772F652119ECD46100BD4D48 /* NextBusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772F652019ECD46100BD4D48 /* NextBusTableViewCell.xib */; };
+		772F652319ECD46100BD4D48 /* NextBusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F652219ECD46100BD4D48 /* NextBusTableViewCell.swift */; };
 		774AD68619E7A69B0092EF9C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774AD68519E7A69B0092EF9C /* AlertUtils.swift */; };
 		774AD69019E7ADC60092EF9C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774AD68D19E7AD910092EF9C /* Alamofire.framework */; };
 		774AD69219E7ADE70092EF9C /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 774AD68D19E7AD910092EF9C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -66,6 +68,8 @@
 		771A62D419ECC3610022288E /* StopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopTableViewController.swift; sourceTree = "<group>"; };
 		771A62D619ECC85F0022288E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		771A62D819ECCC990022288E /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		772F652019ECD46100BD4D48 /* NextBusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextBusTableViewCell.xib; sourceTree = "<group>"; };
+		772F652219ECD46100BD4D48 /* NextBusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusTableViewCell.swift; sourceTree = "<group>"; };
 		774AD68519E7A69B0092EF9C /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		774AD68719E7AD910092EF9C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		774AD69319E7B0DE0092EF9C /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				774B98C119E70D6F00656E56 /* LaunchScreen.xib */,
 				774B98B619E70D6F00656E56 /* Supporting Files */,
 				771A62D619ECC85F0022288E /* Constants.swift */,
+				772F652019ECD46100BD4D48 /* NextBusTableViewCell.xib */,
+				772F652219ECD46100BD4D48 /* NextBusTableViewCell.swift */,
 			);
 			path = "Bear Transit";
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				772F652119ECD46100BD4D48 /* NextBusTableViewCell.xib in Resources */,
 				774B98BE19E70D6F00656E56 /* Main.storyboard in Resources */,
 				774B98C319E70D6F00656E56 /* LaunchScreen.xib in Resources */,
 				774B98C019E70D6F00656E56 /* Images.xcassets in Resources */,
@@ -311,6 +318,7 @@
 				774AD69419E7B0DE0092EF9C /* Stop.swift in Sources */,
 				774B98DB19E70ECE00656E56 /* StopsTableViewController.swift in Sources */,
 				771A62D719ECC85F0022288E /* Constants.swift in Sources */,
+				772F652319ECD46100BD4D48 /* NextBusTableViewCell.swift in Sources */,
 				771A62D519ECC3610022288E /* StopTableViewController.swift in Sources */,
 				774B98DD19E7102B00656E56 /* LocationManager.swift in Sources */,
 			);
