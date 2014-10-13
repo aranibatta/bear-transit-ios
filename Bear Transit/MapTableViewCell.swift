@@ -38,6 +38,10 @@ class MapTableViewCell : UITableViewCell {
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         mapView.addAnnotation(pin)
+        
+        let region = MKCoordinateRegion(center: pin.coordinate, span: MKCoordinateSpanMake(0.01, 0.01))
+        mapView.setRegion(region, animated: false)
+        
     }
 
     required init(coder aDecoder: NSCoder) {

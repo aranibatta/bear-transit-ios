@@ -139,6 +139,7 @@
 				774AD68519E7A69B0092EF9C /* AlertUtils.swift */,
 				774B98DA19E70ECE00656E56 /* StopsTableViewController.swift */,
 				771A62D419ECC3610022288E /* StopTableViewController.swift */,
+				771A62D819ECCC990022288E /* MapTableViewCell.swift */,
 				774AD69319E7B0DE0092EF9C /* Stop.swift */,
 				774B98DC19E7102B00656E56 /* LocationManager.swift */,
 				774B98BC19E70D6F00656E56 /* Main.storyboard */,
@@ -146,7 +147,6 @@
 				774B98C119E70D6F00656E56 /* LaunchScreen.xib */,
 				774B98B619E70D6F00656E56 /* Supporting Files */,
 				771A62D619ECC85F0022288E /* Constants.swift */,
-				771A62D819ECCC990022288E /* MapTableViewCell.swift */,
 			);
 			path = "Bear Transit";
 			sourceTree = "<group>";

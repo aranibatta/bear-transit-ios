@@ -13,6 +13,7 @@ import Alamofire
 class StopTableViewController: UITableViewController {
     
     var stop : Stop?
+    var departures : [Dictionary<String, AnyObject>] = []
     
     override func viewDidLoad() {
         navigationItem.title = stop?.name
@@ -30,35 +31,45 @@ class StopTableViewController: UITableViewController {
     }
     
     func populateNextBusCells(info : Dictionary<String, AnyObject>) {
-        println(info)
+        var next: AnyObject? = info["next"] as AnyObject?
+        if let next: AnyObject = next {
+            departures = next as [Dictionary<String, AnyObject>]
+            tableView.reloadData()
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if (indexPath.section == 0) {
-            return 200
+            return 250
         } else {
             return 44
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.section == 0) {
+        if indexPath.section == 0 {
             // Return the map
             let mapCell = MapTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MapCell")
             mapCell.dropPin(stop!.lat, lon: stop!.lon)
             return mapCell
         } else {
-            // TODO
-            return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "")
+            let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "NextBusCell")
+            cell.textLabel?.text = (departures[indexPath.row]["line"]! as String)
+            cell.detailTextLabel?.text = (departures[indexPath.row]["line_note"]! as String)
+            return cell
         }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 // TODO
+        if section == 0 {
+            return 1
+        } else {
+            return departures.count
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1 // TODO
+        return 2
     }
     
 }
