@@ -22,9 +22,9 @@ class StopTableViewController: UITableViewController {
         let requestURL = "\(API_ROOT)stop/\(stop!.getSafeIdentifier())?time=\(time)"
         println(requestURL)
         Alamofire.request(.GET, requestURL).responseJSON { (request, response, json, error) -> Void in
-            if (error != nil) {
+            if error != nil {
                 println(error)
-                AlertUtils.showAlert(self, title: "Connection error", message: "\(error?.description)")
+                AlertUtils.showAlert(self, title: "Connection error", message: error!.localizedDescription)
             } else {
                 self.saveNextBusCellsData(json as Dictionary<String, AnyObject>)
             }
@@ -54,7 +54,7 @@ class StopTableViewController: UITableViewController {
         let diff = calendar.components(NSCalendarUnit.HourCalendarUnit|NSCalendarUnit.MinuteCalendarUnit, fromDate: now, toDate: future!, options: .allZeros)
         let hours = diff.hour
         let mins = diff.minute
-        if (hours > 0) {
+        if hours > 0 {
             return "\(hours)h \(mins)m"
         } else {
             return "\(mins) min"
@@ -63,11 +63,7 @@ class StopTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (indexPath.section == 0) {
-            return 250
-        } else {
-            return 60
-        }
+        return (indexPath.section == 0) ? 250 : 60
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -78,23 +74,26 @@ class StopTableViewController: UITableViewController {
             return mapCell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("NextBusCell") as NextBusTableViewCell
+            
+            // Configure the cell
             cell.backgroundColor = UIColor(red: 26/255.0, green: 101/255.0, blue: 71/255.0, alpha: 1.0)
+            
+            // Configure the left side of the cell
             cell.lineName.text = (departures[indexPath.row]["line"]! as String)
             let destination = departures[indexPath.row]["line_note"]! as String
             cell.lineNote.text = "To \(destination)"
+            
+            // Configure the right side of the cell
             let times = departures[indexPath.row]["times"]! as [Int]
             cell.timeOne.text = getTimeDifference(times.first!)
             cell.timeTwo.text = times.count > 1 ? getTimeDifference(times[1]) : ""
+            
             return cell
         }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return departures.count
-        }
+        return (section == 0) ? 1 : departures.count
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

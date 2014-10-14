@@ -70,7 +70,7 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
         return cell!
     }
     
-    // MARK: - UI
+    // MARK: - Callbacks
     
     func updateStopsTable(stops : [AnyObject]) {
         self.stops = []
@@ -81,19 +81,17 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
         }
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
-        println(self.stops)
     }
     
     // MARK: - LocationManagerDelegate
     
     func didGetLocation(location : CLLocation) {
-        println(location.description)
         let lat = location.coordinate.latitude
         let lon = location.coordinate.longitude
         Alamofire.request(.GET, "\(API_ROOT)stops?lat=\(lat)&lon=\(lon)")
             .responseJSON { (request, response, json, error) -> Void in
-                if (error != nil) {
-                    AlertUtils.showAlert(self, title: "Connection error", message: "There was an error connecting to the Internet.")
+                if error != nil {
+                    AlertUtils.showAlert(self, title: "Connection error", message: error!.localizedDescription)
                 } else {
                     self.updateStopsTable(json as [AnyObject])
                 }

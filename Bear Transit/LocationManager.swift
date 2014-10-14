@@ -29,7 +29,7 @@ class LocationManager : NSObject, CLLocationManagerDelegate {
     }
     
     func getLocation() {
-        if (CLLocationManager.locationServicesEnabled()) {
+        if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .Authorized, .AuthorizedWhenInUse:
                 clManager.startUpdatingLocation()
@@ -45,7 +45,7 @@ class LocationManager : NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let location: CLLocation? = locations.last as? CLLocation
-        if (location != nil) {
+        if location != nil {
             clManager.stopUpdatingLocation()
             delegate.didGetLocation(location!)
         }

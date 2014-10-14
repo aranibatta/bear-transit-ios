@@ -14,6 +14,7 @@ import CoreLocation
 class MapTableViewCell : UITableViewCell {
     
     let mapView = MKMapView()
+    let zoomSpan = 0.01
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -39,13 +40,12 @@ class MapTableViewCell : UITableViewCell {
         pin.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         mapView.addAnnotation(pin)
         
-        let region = MKCoordinateRegion(center: pin.coordinate, span: MKCoordinateSpanMake(0.01, 0.01))
+        let region = MKCoordinateRegion(center: pin.coordinate, span: MKCoordinateSpanMake(zoomSpan, zoomSpan))
         mapView.setRegion(region, animated: false)
-        
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
 }
