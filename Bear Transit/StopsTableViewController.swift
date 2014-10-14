@@ -41,6 +41,13 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
         locationManager!.getLocation()
     }
     
+    
+    // MARK: - UITableViewDelegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let stop = stops[indexPath.row]
+        performSegueWithIdentifier("StopCell", sender: stop)
+    }
+    
     // MARK: - UITableViewDataSource
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -77,9 +84,13 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
         println(location.description)
         let lat = location.coordinate.latitude
         let lon = location.coordinate.longitude
-        Alamofire.request(.GET, "https://beartransit.daylen.com/api/v1/stops?lat=\(lat)&lon=\(lon)")
+        Alamofire.request(.GET, "\(API_ROOT)stops?lat=\(lat)&lon=\(lon)")
             .responseJSON { (request, response, json, error) -> Void in
-                self.updateStopsTable(json as [AnyObject])
+                if (error != nil) {
+                    AlertUtils.showAlert(self, title: "Connection error", message: "There was an error connecting to the Internet.")
+                } else {
+                    self.updateStopsTable(json as [AnyObject])
+                }
         }
     }
     
@@ -90,7 +101,14 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
     
     func didGetPermissionError() {
         self.refreshControl?.endRefreshing()
-        AlertUtils.showAlert(self, title: "Could not get location", message: "Permission was denied. Please give permission to access your location.");
+        AlertUtils.showAlert(self, title: "Could not get location", message: "Permission was denied. Please give permission to access your location.")
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let stopTVC = segue.destinationViewController as StopTableViewController
+        stopTVC.stop = sender as? Stop
     }
     
 }

@@ -24,6 +24,10 @@ class Stop : Printable {
         self.distance = distance
     }
     
+    func getSafeIdentifier() -> String {
+        return identifier.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.allZeros, range: nil)
+    }
+    
     var description: String {
         get {
             return name
