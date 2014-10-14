@@ -20,10 +20,8 @@ class StopTableViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "NextBusTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "NextBusCell")
         let time = Int(NSDate().timeIntervalSince1970) * 1000
         let requestURL = "\(API_ROOT)stop/\(stop!.getSafeIdentifier())?time=\(time)"
-        println(requestURL)
         Alamofire.request(.GET, requestURL).responseJSON { (request, response, json, error) -> Void in
             if error != nil {
-                println(error)
                 AlertUtils.showAlert(self, title: "Connection error", message: error!.localizedDescription)
             } else {
                 self.saveNextBusCellsData(json as Dictionary<String, AnyObject>)
