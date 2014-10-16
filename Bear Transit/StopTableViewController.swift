@@ -77,14 +77,10 @@ class StopTableViewController: UITableViewController {
             cell.backgroundColor = UIColor(red: 26/255.0, green: 101/255.0, blue: 71/255.0, alpha: 1.0)
             
             // Configure the left side of the cell
-            cell.lineName.text = (departures[indexPath.row]["line"]! as String)
-            let destination = departures[indexPath.row]["line_note"]! as String
-            cell.lineNote.text = "To \(destination)"
+            // TODO: your code here
             
             // Configure the right side of the cell
-            let times = departures[indexPath.row]["times"]! as [Int]
-            cell.timeOne.text = getTimeDifference(times.first!)
-            cell.timeTwo.text = times.count > 1 ? getTimeDifference(times[1]) : ""
+            // TODO: your code here
             
             return cell
         }
