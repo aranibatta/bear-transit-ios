@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Stop : Printable {
+class Stop {
     
     var identifier : String
     var name : String
@@ -26,12 +26,6 @@ class Stop : Printable {
     
     func getSafeIdentifier() -> String {
         return identifier.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.allZeros, range: nil)
-    }
-    
-    var description: String {
-        get {
-            return name
-        }
     }
     
 }

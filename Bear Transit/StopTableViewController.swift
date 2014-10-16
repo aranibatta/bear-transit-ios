@@ -52,11 +52,9 @@ class StopTableViewController: UITableViewController {
         let diff = calendar.components(NSCalendarUnit.HourCalendarUnit|NSCalendarUnit.MinuteCalendarUnit, fromDate: now, toDate: future!, options: .allZeros)
         let hours = diff.hour
         let mins = diff.minute
-        if hours > 0 {
-            return "\(hours)h \(mins)m"
-        } else {
-            return "\(mins) min"
-        }
+        // TODO: your code here
+        // Return the time difference as a string
+        return ""
         
     }
     

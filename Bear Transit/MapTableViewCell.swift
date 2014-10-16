@@ -36,12 +36,8 @@ class MapTableViewCell : UITableViewCell {
     }
     
     func dropPin(lat: Double, lon: Double) {
-        let pin = MKPointAnnotation()
-        pin.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-        mapView.addAnnotation(pin)
-        
-        let region = MKCoordinateRegion(center: pin.coordinate, span: MKCoordinateSpanMake(zoomSpan, zoomSpan))
-        mapView.setRegion(region, animated: false)
+        // TODO: your code here
+        // Add a pin to the map and center the map on the pin
     }
 
     required init(coder aDecoder: NSCoder) {

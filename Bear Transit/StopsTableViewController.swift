@@ -38,14 +38,14 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
     }
     
     func triggerUpdate() {
-        locationManager!.getLocation()
+        // TODO: your code here
+        // Fetch the user's location
     }
-    
     
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let stop = stops[indexPath.row]
-        performSegueWithIdentifier("StopCell", sender: stop)
+        // TODO: your code here
+        // Find the tapped object and perform a segue
     }
     
     // MARK: - UITableViewDataSource
@@ -58,44 +58,26 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("StopCell") as? UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "StopCell")
-        }
-        if let cell = cell {
-            cell.textLabel?.text = stops[indexPath.row].name
-            cell.detailTextLabel?.text = String(format: "%.2f miles away", stops[indexPath.row].distance)
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        }
-        return cell!
+        // TODO: your code here
+        // Return a configured table view cell
+        return UITableViewCell(style: .Default, reuseIdentifier: "")
     }
     
     // MARK: - Callbacks
     
     func updateStopsTable(stops : [AnyObject]) {
-        self.stops = []
-        for stop in stops {
-            let stopDict = stop as NSDictionary
-            let stopObj = Stop(identifier: stopDict["id"] as String, name: stopDict["name"] as String, lat: stopDict["lat"] as Double, lon: stopDict["lon"] as Double, distance: stopDict["dist"] as Double)
-            self.stops.append(stopObj)
-        }
-        self.tableView.reloadData()
-        self.refreshControl?.endRefreshing()
+        // TODO: your code here
+        // Convert JSON into Stop objects and store them in the array
     }
     
     // MARK: - LocationManagerDelegate
     
     func didGetLocation(location : CLLocation) {
-        let lat = location.coordinate.latitude
-        let lon = location.coordinate.longitude
-        Alamofire.request(.GET, "\(API_ROOT)stops?lat=\(lat)&lon=\(lon)")
-            .responseJSON { (request, response, json, error) -> Void in
-                if error != nil {
-                    AlertUtils.showAlert(self, title: "Connection error", message: error!.localizedDescription)
-                } else {
-                    self.updateStopsTable(json as [AnyObject])
-                }
-        }
+        let lat = 0
+        let lon = 0
+        let url = "\(API_ROOT)stops?lat=\(lat)&lon=\(lon)"
+        // TODO: your code here
+        // Make an API request to fetch the closest bus stops
     }
     
     func didGetLocationError(error: NSError) {
@@ -111,8 +93,8 @@ class StopsTableViewController: UITableViewController, LocationManagerDelegate, 
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let stopTVC = segue.destinationViewController as StopTableViewController
-        stopTVC.stop = sender as? Stop
+        // TODO: your code here
+        // Configure an attribute on the target view controller
     }
     
 }
