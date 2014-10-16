@@ -12,13 +12,15 @@ import Alamofire
 
 class StopTableViewController: UITableViewController {
     
+    // TODO: Remove offset
+    let hoursOffset = -10
     var stop : Stop?
     var departures : [Dictionary<String, AnyObject>] = []
     
     override func viewDidLoad() {
         navigationItem.title = stop?.name
         self.tableView.registerNib(UINib(nibName: "NextBusTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "NextBusCell")
-        let time = Int(NSDate().timeIntervalSince1970) * 1000
+        let time = Int(NSDate().timeIntervalSince1970) * 1000 + (hoursOffset * 60 * 60 * 1000)
         let requestURL = "\(API_ROOT)stop/\(stop!.getSafeIdentifier())?time=\(time)"
         Alamofire.request(.GET, requestURL).responseJSON { (request, response, json, error) -> Void in
             if error != nil {
@@ -43,7 +45,7 @@ class StopTableViewController: UITableViewController {
     func getTimeDifference(time : Int) -> String {
         let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         
-        let now = NSDate()
+        let now = NSDate(timeIntervalSinceNow: Double(hoursOffset * 60 * 60))
         let components = calendar.components(NSCalendarUnit.YearCalendarUnit|NSCalendarUnit.MonthCalendarUnit|NSCalendarUnit.DayCalendarUnit, fromDate: now)
         components.hour = time / 100
         components.minute = time % 100
